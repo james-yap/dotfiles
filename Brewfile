@@ -50,3 +50,9 @@ brew "neovim" # A highly extensible Vim-based text editor (modern fork of Vim)
 # --- Fonts & Terminal Emulators (Casks) ---
 # cask "font-hack-nerd-font" # A popular programming font patched with glyphs for powerline, icons, etc.
 # cask "wezterm"             # A GPU-accelerated cross-platform terminal emulator
+
+# --- Fish-like behaviour in zsh ---
+# * Note: Must use with zsh config in stow/zsh/
+# brew "starship" # Cross-shell prompt that's fast, customizable, and shows useful context
+# brew "zsh-autosuggestions" # Fish-like autosuggestions for Zsh
+# brew "zsh-syntax-highlighting" # Fish-like syntax highlighting for Zsh
