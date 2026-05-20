@@ -1,10 +1,13 @@
-ZSH_THEME=""
+# ~/.zshrc - Main entry point for Zsh configuration
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+# Define Zsh configuration directory
+export ZSH_CONFIG="$HOME/.config/zsh"
 
-eval "$(starship init zsh)"
-
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-bindkey '^[[C' autosuggest-accept
+# Source modular configurations
+if [[ -d "$ZSH_CONFIG" ]]; then
+  # Load all modular configuration files (using nullglob 'N' suffix)
+  for config_file in "$ZSH_CONFIG"/*.zsh(N); do
+    source "$config_file"
+  done
+  unset config_file
+fi
