@@ -25,5 +25,6 @@ map("n", "<leader>tt", function()
 end, { desc = "Open terminal in new tab" })
 
 map("n", "<leader>mr", manim.render_scene, { desc = "Render current Manim scene" })
+map("n", "<leader>ms", manim.render_slides, { desc = "Render current Manim scene (manim-slides)" })
 map("n", "<leader>mp", manim.present_scene, { desc = "Present current Manim scene" })
 map("n", "<leader>mo", manim.open_scene_output, { desc = "Open output directory for current scene" })

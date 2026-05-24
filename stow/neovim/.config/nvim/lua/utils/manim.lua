@@ -67,6 +67,12 @@ function M.render_scene()
   end)
 end
 
+function M.render_slides()
+  run(function(ctx)
+    return { "uv", "run", "manim-slides", "render", ctx.file, ctx.scene_class }
+  end)
+end
+
 function M.present_scene()
   run(function(ctx)
     return { "uv", "run", "manim-slides", "present", ctx.scene_class }
