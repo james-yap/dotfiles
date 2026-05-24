@@ -2,7 +2,11 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-vim.keymap.set("n", "<leader>cp", function()
+local map = vim.keymap.set
+local manim = require("utils.manim")
+local terminal = require("utils.terminal")
+
+map("n", "<leader>cp", function()
   local path = vim.fn.expand("%:p")
   vim.fn.setreg("+", path)
   print("Copied: " .. path)
@@ -16,46 +20,10 @@ if ok then
   })
 end
 
-vim.keymap.set("n", "<leader>tt", function()
-  vim.cmd("tabnew")
-  vim.fn.jobstart(vim.o.shell, { term = true })
-  vim.cmd("startinsert")
+map("n", "<leader>tt", function()
+  terminal.open_tab_job(vim.o.shell, { start_insert = true })
 end, { desc = "Open terminal in new tab" })
 
-vim.keymap.set("n", "<leader>ms", function()
-  local file = vim.fn.expand("%:p")
-
-  if vim.bo.filetype ~= "python" then
-    vim.notify("Manim Slides: current buffer is not a Python file", vim.log.levels.WARN)
-    return
-  end
-
-  local scene_class = nil
-  for lnum = vim.fn.line("."), 1, -1 do
-    local line = vim.fn.getline(lnum)
-    local class_name = line:match("^%s*class%s+([%w_]+)%s*[%(:]")
-    if class_name then
-      scene_class = class_name
-      break
-    end
-  end
-
-  if not scene_class then
-    vim.notify("Manim Slides: no enclosing class found", vim.log.levels.WARN)
-    return
-  end
-
-  local root = vim.fs.root(file, { "pyproject.toml", ".git" }) or vim.fn.getcwd()
-  local cmd = table.concat({
-    "uv run manim-slides render",
-    vim.fn.shellescape(file),
-    vim.fn.shellescape(scene_class),
-    "-ql",
-    "&& uv run manim-slides present",
-    vim.fn.shellescape(scene_class),
-  }, " ")
-
-  vim.cmd("tabnew")
-  vim.fn.jobstart(cmd, { cwd = root, term = true })
-  -- vim.cmd("startinsert") -- focuses the terminal
-end, { desc = "Render/present current Manim Slides scene" })
+map("n", "<leader>mr", manim.render_scene, { desc = "Render current Manim scene" })
+map("n", "<leader>mp", manim.present_scene, { desc = "Present current Manim scene" })
+map("n", "<leader>mo", manim.open_scene_output, { desc = "Open output directory for current scene" })
