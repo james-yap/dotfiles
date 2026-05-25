@@ -21,8 +21,8 @@ if ok then
 end
 
 map("n", "<leader>tt", function()
-  terminal.open_tab_job(vim.o.shell, { start_insert = true })
-end, { desc = "Open terminal in new tab" })
+  terminal.open_buffer_job(vim.o.shell, { start_insert = true })
+end, { desc = "Open terminal buffer" })
 
 map("n", "<leader>mr", manim.render_scene, { desc = "Render current Manim scene" })
 map("n", "<leader>ms", manim.render_slides, { desc = "Render current Manim scene (manim-slides)" })

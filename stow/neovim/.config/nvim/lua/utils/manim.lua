@@ -57,7 +57,7 @@ local function run(command_parts)
     return
   end
 
-  terminal.open_tab_job(shell_join(command_parts(ctx)), { cwd = ctx.root })
+  terminal.open_buffer_job(shell_join(command_parts(ctx)), { cwd = ctx.root })
   -- vim.cmd("startinsert") -- focuses the terminal
 end
 
