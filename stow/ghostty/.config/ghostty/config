@@ -4,3 +4,22 @@ keybind = super+ctrl+h=goto_split:left
 keybind = super+ctrl+j=goto_split:down
 keybind = super+ctrl+k=goto_split:up
 keybind = super+ctrl+l=goto_split:right
+
+# Vim-style scrollback mode.
+# Enter with Ctrl+Cmd+Space; exiting returns to bottom.
+# q/Esc exit
+keybind = super+ctrl+space=activate_key_table:scroll
+
+keybind = scroll/j=scroll_page_lines:1
+keybind = scroll/k=scroll_page_lines:-1
+keybind = scroll/d=scroll_page_fractional:0.5
+keybind = scroll/u=scroll_page_fractional:-0.5
+keybind = scroll/f=scroll_page_down
+keybind = scroll/b=scroll_page_up
+keybind = scroll/g=scroll_to_top
+keybind = scroll/shift+g=scroll_to_bottom
+
+keybind = scroll/q=scroll_to_bottom
+keybind = chain=deactivate_key_table
+keybind = scroll/escape=scroll_to_bottom
+keybind = chain=deactivate_key_table
