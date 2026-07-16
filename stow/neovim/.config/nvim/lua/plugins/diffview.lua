@@ -3,6 +3,14 @@ return {
   {
     "sindrets/diffview.nvim",
     cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewClose" },
+    opts = {
+      file_panel = {
+        win_config = {
+          position = "bottom",
+          height = 15,
+        },
+      },
+    },
     -- To disable command-line completion for Diffview commands (highly recommended in massive monoliths
     -- like shop/world to prevent Neovim from freezing or running expensive Git queries):
     -- Uncomment the config block below.
