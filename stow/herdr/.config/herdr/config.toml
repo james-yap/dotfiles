@@ -1,0 +1,3 @@
+[terminal]
+default_shell = "/opt/homebrew/bin/fish"
+shell_mode = "auto"
