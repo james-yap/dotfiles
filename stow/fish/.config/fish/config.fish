@@ -57,3 +57,6 @@ end
 # -----------------------------------------------------------------------------
 # End of config.fish
 # -----------------------------------------------------------------------------
+
+# Added by `rbenv init` on Sun 10 May 2026 22:43:07 EDT
+status --is-interactive; and rbenv init - --no-rehash fish | source
