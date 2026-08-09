@@ -17,6 +17,12 @@ if status is-interactive
     if test -f .venv/bin/activate.fish
         source .venv/bin/activate.fish
     end
+
+    # Keybinds (fish_user_key_bindings is the hook fish calls for custom binds)
+    function fish_user_key_bindings
+        fzf --fish | source
+        bind \cg edit_command_buffer
+    end
 end
 
 # -----------------------------------------------------------------------------

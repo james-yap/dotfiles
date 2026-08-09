@@ -168,11 +168,11 @@ main() {
   echo "=========================================="
 
   check_dependencies
-  setup_tmux_tpm
+  # setup_tmux_tpm
   # install_brew_packages
   symlink_dotfiles
-  update_bat_cache
-  install_fzf
+  # update_bat_cache
+  # install_fzf
 
   log "Dotfiles setup completed!"
   echo "Please remember to:"
