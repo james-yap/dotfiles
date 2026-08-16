@@ -2,3 +2,8 @@ onboarding = false
 [terminal]
 default_shell = "/opt/homebrew/bin/fish"
 shell_mode = "auto"
+
+[experimental]
+# Required for image.nvim / leetcode images inside herdr panes.
+# Outer terminal must support Kitty graphics (Ghostty does).
+kitty_graphics = true
