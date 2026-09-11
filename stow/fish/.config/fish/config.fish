@@ -12,6 +12,7 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
     set -gx EDITOR nvim
+    set -gx NVIM_APPNAME "kickstart.nvim"
     
     # Auto-activate venv if present
     if test -f .venv/bin/activate.fish
@@ -23,6 +24,7 @@ if status is-interactive
         fzf --fish | source
         bind \cg edit_command_buffer
     end
+
 end
 
 # -----------------------------------------------------------------------------
@@ -63,6 +65,3 @@ end
 # -----------------------------------------------------------------------------
 # End of config.fish
 # -----------------------------------------------------------------------------
-
-# Added by `rbenv init` on Sun 10 May 2026 22:43:07 EDT
-status --is-interactive; and rbenv init - --no-rehash fish | source

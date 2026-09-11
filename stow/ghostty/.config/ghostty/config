@@ -23,3 +23,6 @@ keybind = scroll/q=scroll_to_bottom
 keybind = chain=deactivate_key_table
 keybind = scroll/escape=scroll_to_bottom
 keybind = chain=deactivate_key_table
+
+# Ghostty interactive shell
+command = /opt/homebrew/bin/fish
