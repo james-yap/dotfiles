@@ -1,3 +1,5 @@
+AGENTS.local.md
+
 # This .gitignore file is configured to be the global gitignore for all Git repositories.
 # Check ~/.config/git/.gitconfig > core.excludesfile for the path to this file.
 
